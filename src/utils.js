@@ -38,18 +38,4 @@ export const toggleDone=async (id,done)=>{
   }*/
 
 
-//autentikáció:
-export const signIn=async (email,password)=>{
-    try{
-      await signInWithEmailAndPassword(auth,email,password)
-    }catch(err){
-      console.log(err);
-    }
-  }
-  export const getCurrentUser=(setUser)=>{
-    onAuthStateChanged(auth,(current)=>setUser(current))
-  }
-  export const signOutUser=async ()=>{
-    await signOut(auth)
-  }
-  
+
