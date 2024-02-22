@@ -14,12 +14,13 @@ import { UserProvider } from './context/UserContext'
 import { CategProvider } from './context/CategContext'
 import { EditPost } from './pages/EditPost'
 import { AddPost } from './pages/AddPost'
+import { HashRouter } from 'react-router-dom'
 
 function App() {
   
   
   return (
-    <BrowserRouter>
+    <HashRouter>
     <UserProvider>
       <CategProvider>
       <div>
@@ -39,7 +40,7 @@ function App() {
       </div>
         </CategProvider>
       </UserProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
