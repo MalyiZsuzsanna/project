@@ -3,8 +3,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -15,16 +14,24 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Alerts } from '../componens/Alerts';
+import { useEffect } from 'react';
 
 
 const defaultTheme = createTheme();
 
 export const SignInUp=()=> {
   const param=useParams()
+  const navigate=useNavigate()
 
-  console.log(param);
+  /*console.log(param);*/
 
-  const {signUpUser,signInUser}=useContext(UserContext)
+  const {signUpUser,signInUser,msg,setMsg}=useContext(UserContext)
+  useEffect(()=>{
+    setMsg('')
+    document.querySelector('form').reset()
+  },[param?.type])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -83,19 +90,16 @@ export const SignInUp=()=> {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link component="button" variant="body2"
+                onClick={()=>navigate('/pwreset')}
+                >
                   Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        
+        {msg && <Alerts msg={msg} severity='error'/>}
       </Container>
     </ThemeProvider>
   );

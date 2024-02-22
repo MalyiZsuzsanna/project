@@ -12,23 +12,29 @@ import { AddNewItem } from '../componens/AddNewItem';
 export const Budget = () => {
     const [budget,setBudget]=useState([])
     const [total,setTotal]=useState(0)
+  const CalcTot=(arr)=>{
+    if (arr.length>0 ){
+      console.log(arr)
+      return arr.reduce((acc,obj)=>acc+(+obj.amount),0)
 
+  }else{
+      return 0
+  }}
   useEffect(()=>{
-    if (budget.length>0 ){
-      let s=budget.reduce((acc,obj)=>acc+obj.amount,0)
-    console.log(s,'FT')
-    setTotal(s)
-    }
-    
+    console.log('egy')
+    setTotal(CalcTot(budget))
+        
   },[budget.length])
     
 
 
     useEffect(()=>{
-        const unsubscribe= readBudget(setBudget)
-        return ()=>unsubscribe()
+      console.log('kettő')
+        readBudget(setBudget)
+        setTotal(CalcTot(budget))
+        
     },[])
-    console.log(budget);
+    console.log(budget,total);
   return (
     <div className='budgetstyle'>
         <AddNewItem/>

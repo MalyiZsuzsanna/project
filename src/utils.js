@@ -26,7 +26,7 @@ export const toggleDone=async (id,done)=>{
     const newBudget={
       descr:newItem,
       done:false,
-      
+      amount:newAmount,
       timestamp:serverTimestamp()
     }
     await addDoc(collectionRef,newBudget)

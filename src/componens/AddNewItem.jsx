@@ -8,10 +8,13 @@ import { useState } from 'react';
 
 export const AddNewItem=()=> {
     const [newItem,setNewItem]=useState('')
+    const [newAmount,setNewAmount]=useState(0)
     
     console.log(newItem);
-    const handleAdd=()=>{addNewTodo(newItem)
+    const handleAdd=()=>{
+      addNewBudget(newItem,newAmount)
         setNewItem('')
+        setNewAmount(0)
     }
   return (
     <div className='addNewItem'>
@@ -27,7 +30,11 @@ export const AddNewItem=()=> {
          value={newItem}
          onChange={(event)=>setNewItem(event.target.value)}/>
       
-      
+      <TextField id="outlined-basic"
+       label="Add new amount"
+         variant="outlined" 
+         value={newAmount}
+         onChange={(event)=>setNewAmount(event.target.value)}/>
       
     </Box>
     <AddBoxIcon sx={{color:'green', cursor:'pointer', fontSize:'2rem'}}
