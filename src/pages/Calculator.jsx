@@ -40,7 +40,8 @@ export const Calculator = () => {
 
   }
   return (
-    <div className='container'>
+    <div className='container1'>
+      
       <h3 style={{ fontSize: "25px", color: "white", borderBottom: "2px solid whitesmoke" }}>Calculator</h3>
       <form action="">
         <input type="text" value={result} />
@@ -67,7 +68,7 @@ export const Calculator = () => {
         <button onClick={calculate} className="equal color">=</button>
 
       </div>
-
+     
     </div>
   )
 }

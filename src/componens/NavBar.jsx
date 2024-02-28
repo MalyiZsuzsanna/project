@@ -62,7 +62,7 @@ export const NavBar=()=>{
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundImage: 'linear-gradient(45deg, #ff5520, #ffd800, #750cf2, #0cbcf2)'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
          

@@ -14,6 +14,8 @@ import { FileInput } from '../componens/FileInput'
 import Button from '@mui/material/Button';
 import { uploadFile } from '../uploadFile'
 import { addPost } from '../crudUtility'
+import { Loader } from '../componens/Loader'
+import { Alerts } from '../componens/Alerts'
 
 export const AddPost = () => {
   const{user}=useContext(UserContext)
@@ -24,11 +26,16 @@ export const AddPost = () => {
   const [story,setStory]=useState('')
   const [image,setImage]=useState(null)
 
+  const [uploaded,setUploaded]  = useState(false);
+  const [loading,setLoading]  = useState(false);
+
+
   if(!user) return <NotFound/>
  console.log(categ,title)
 
  const handleSubmit=async (event)=>{
   event.preventDefault()
+  setLoading(true)
 
   try{
     const photoUrl=await uploadFile(image)
@@ -43,9 +50,12 @@ export const AddPost = () => {
       likesCount:0,
 
     })
+    setUploaded(true)
 
   }catch(err){
     console.log(err)
+  }finally{
+    setLoading(false)
   }
  }
   return (
@@ -58,7 +68,7 @@ export const AddPost = () => {
           noValidate
           autoComplete="off"
         >
-          <Box sx={{display:'flex', flex:'wrap', gap:2}}>
+          <div style={{display:'flex', flex:'wrap', gap:2,width:'100%'}}>
           <TextField id="outlined-basic" label="Post Title" autoFocus variant="outlined"
             value={title}
             onChange={(event)=>setTitle(event.target.value)}
@@ -81,7 +91,7 @@ export const AddPost = () => {
           
         </Select>
       </FormControl>
-      </Box>
+      </div>
       <FormControl sx={{display:'flex', width:'100%'}}>
         <TextEditor story={story} setStory={setStory}/>
       </FormControl>
@@ -89,10 +99,12 @@ export const AddPost = () => {
             <FileInput setImage={setImage}/>
             <Button type="submit" variant="contained"
             disabled={title.length==0 || categ==0 || story.length==0 || !image}
-            >Contained
+            >save
             
             </Button>
       </Box>
+      {loading && <Loader/>}
+      {uploaded && <Alerts msg="Sikeres mentés!" severity="success"/>}
     </div>
   )
 }

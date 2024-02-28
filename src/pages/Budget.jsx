@@ -41,7 +41,7 @@ export const Budget = () => {
          <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
           {budget.length>0 && budget.map(obj=><BudgetList {...obj} key={obj.id}/>)}
           </List>
-          <div>
+          <div className='total'>
             total:{total}
           </div>
     </div>

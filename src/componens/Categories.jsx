@@ -11,7 +11,7 @@ export const Categories = ({selectedCateg,setSelectedCateg}) => {
 
   return (
    
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} sx={{flexWrap:'wrap', justifyContent:'center', gap:3}}>
             <Typography>
                 Categories
             </Typography>

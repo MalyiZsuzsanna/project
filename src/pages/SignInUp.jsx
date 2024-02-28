@@ -48,8 +48,17 @@ export const SignInUp=()=> {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" 
+      sx={{ display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+            width: '100%',
+            height: '100vh',
+            padding: '15px',
+            backgroundColor:''}}>
         <CssBaseline />
+        
         <Box
           sx={{  marginTop: 8,  display: 'flex',  flexDirection: 'column',  alignItems: 'center',  }} >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -88,6 +97,7 @@ export const SignInUp=()=> {
             >
               {param.type=='up'?'Sign Up' : 'Sign In'}
             </Button>
+            
             <Grid container>
               <Grid item xs>
                 <Link component="button" variant="body2"

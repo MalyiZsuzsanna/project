@@ -18,6 +18,7 @@ export const BudgetList=({id,timestamp,amount,descr,done})=> {
     }
         return (
           <ListItem
+          sx={{flexWrap:'wrap', justifyContent:'center'}}
        
             secondaryAction={
               <IconButton edge="end" aria-label="comments">
