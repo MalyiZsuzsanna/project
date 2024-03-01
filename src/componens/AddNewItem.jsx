@@ -16,6 +16,7 @@ export const AddNewItem=()=> {
         setNewItem('')
         setNewAmount(0)
     }
+    
   return (
     <div className='addNewItem'>
     <Box

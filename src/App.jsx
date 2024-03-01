@@ -1,4 +1,5 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React,{ useEffect } from 'react'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import {Home} from './pages/Home'
@@ -15,6 +16,7 @@ import { CategProvider } from './context/CategContext'
 import { EditPost } from './pages/EditPost'
 import { AddPost } from './pages/AddPost'
 import { HashRouter } from 'react-router-dom'
+
 
 function App() {
   

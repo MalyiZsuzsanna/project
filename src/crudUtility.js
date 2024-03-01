@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore"
+import { addDoc, arrayRemove, arrayUnion, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 
@@ -39,4 +39,21 @@ export const readPost=async (id,setPost,setLikes=null)=>{
     }catch(err){
         console.log(err);
     }
+}
+
+//onclick függvényhez
+export const editLikes=async (postId,userId)=>{
+    const docRef=doc(db,"posts",postId)
+    const docSnap=await getDoc(docRef)
+    //console.log(docSnap.data().likes.indexOf(userId));
+    let likesCount=docSnap.data().likes.length
+    if(docSnap.data().likes.indexOf(userId)==-1){
+        likesCount++
+        await updateDoc(docRef,{likes:arrayUnion(userId),likesCount})
+    }else{
+         likesCount--
+        await updateDoc(docRef,{likes:arrayRemove(userId),likesCount}) 
+    }
+    //await update
+    return likesCount
 }
