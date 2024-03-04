@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 export const Home = () => {
   const [selectedCateg,setSelectedCateg]=useState([])
-  //console.log(selectedCateg)
+  console.log(selectedCateg)
   return (
     <>
     <div className='home'>

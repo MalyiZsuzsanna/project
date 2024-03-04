@@ -21,7 +21,7 @@ export const Budget = () => {
       return 0
   }}
   useEffect(()=>{
-    console.log('egy')
+    
     setTotal(CalcTot(budget))
         
   },[budget.length])
@@ -29,7 +29,7 @@ export const Budget = () => {
 
 
     useEffect(()=>{
-      console.log('kettő')
+    
         readBudget(setBudget)
         setTotal(CalcTot(budget))
         
@@ -38,10 +38,10 @@ export const Budget = () => {
   return (
     <div className='budgetstyle'>
         <AddNewItem/>
-         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+         <List sx={{ width: '100%', maxWidth: '560', bgcolor: 'rgb(111,142,114, 0.6)', fontSize:'20px' }}>
           {budget.length>0 && budget.map(obj=><BudgetList {...obj} key={obj.id}/>)}
           </List>
-          <div className='total'>
+          <div style={{display:'flex', justifyContent:'center', padding:'1rem', maxWidth:'100%', margin:'0 auto'}}>
             total:{total}
           </div>
     </div>

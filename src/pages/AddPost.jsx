@@ -59,16 +59,16 @@ export const AddPost = () => {
   }
  }
   return (
-    <div className='createPost'>
+    <div style={{maxWidth:'800px', margin:'auto'}}>
       <h3>Create post</h3>
 
       <Box
-          component="form"  onSubmit={handleSubmit} sx={{  '& > :not(style)': { m: 1, width: '25ch' },
+          component="form"  onSubmit={handleSubmit} sx={{  '& > :not(style)': { m: 1, width:'100%' },
           }}
           noValidate
           autoComplete="off"
         >
-          <div style={{display:'flex', flex:'wrap', gap:2,width:'100%'}}>
+          <div style={{display:'flex', flex:'wrap', gap:3,width:'50%'}}>
           <TextField id="outlined-basic" label="Post Title" autoFocus variant="outlined"
             value={title}
             onChange={(event)=>setTitle(event.target.value)}

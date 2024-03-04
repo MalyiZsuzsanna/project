@@ -9,20 +9,20 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import { updateBudget } from '../utils';
 
-export const EditItem=({open,setOpen,id,descr})=> {
+export const EditItem=({open,setOpen,id,descr,amount})=> {
   
 const [input,setInput]=useState(descr)
-/*const [input1,setInput1]=useState(amount) */
+const [inputValue,setInputValue]=useState(amount) 
   
 
   const handleClose = () => {
     setOpen(false);
   };
   const handleSave=()=>{
-    console.log(input);
+    console.log(input,inputValue);
     
 //backend fg.
-updateBudget(id,input)
+updateBudget(id,input,inputValue)
 
     handleClose()
   }
@@ -53,11 +53,11 @@ updateBudget(id,input)
         
             multiline
             maxRows={6}
-            type="text"
+            type="number"
             fullWidth
             variant="standard"
-           /* value={input1}
-            onChange={(e)=>setInput(e.target.value)}*/
+           value={inputValue}
+            onChange={(e)=>setInputValue(e.target.value)}
           />
         </DialogContent>
         <DialogActions>

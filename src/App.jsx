@@ -18,6 +18,7 @@ import { AddPost } from './pages/AddPost'
 import { HashRouter } from 'react-router-dom'
 
 
+
 function App() {
   
   
@@ -38,6 +39,7 @@ function App() {
             <Route path="create" element={<AddPost />}/>
             <Route path="details/:id" element={<Details/>}/>
             <Route path="update/:id" element={<EditPost/>}/>
+            
         </Routes>
       </div>
         </CategProvider>

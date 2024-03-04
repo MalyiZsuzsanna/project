@@ -5,7 +5,7 @@ import { readPosts } from '../crudUtility'
 import { PostCards } from './PostCards'
 
 
-export const Posts = (selectedCateg) => {
+export const Posts = ({selectedCateg}) => {
   const [posts,setPosts]=useState([])
 
   useEffect(()=>{

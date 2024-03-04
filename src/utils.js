@@ -18,9 +18,9 @@ export const toggleDone=async (id,done)=>{
     await updateDoc(docRef,{done})
 
   }
-  export const updateBudget=async (id,descr)=>{
+  export const updateBudget=async (id,descr,amount)=>{
     const docRef=doc(db,'budget',id)
-    await updateDoc(docRef,{descr})
+    await updateDoc(docRef,{descr,amount})
   }
 
   export const addNewBudget=async (newItem,newAmount)=>{

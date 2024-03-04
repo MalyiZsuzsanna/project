@@ -13,7 +13,8 @@ export const readCategories=async (setCategories)=>{
 
 export const readPosts=async (setPosts,selectedCateg)=>{
     const collectionRef=collection(db,'posts')
-    const  q=query(collectionRef,orderBy('timestamp','desc')) 
+    console.log(selectedCateg,selectedCateg.length)
+    const  q=selectedCateg.length==0 ? query(collectionRef,orderBy('timestamp','desc'))  :  query(collectionRef,where('category','in',selectedCateg)) 
     const unsubscribe=onSnapshot(q,(snapshot)=>{
         setPosts(snapshot.docs.map(doc=>({...doc.data(),id:doc.id})))
     })

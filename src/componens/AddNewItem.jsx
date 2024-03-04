@@ -21,7 +21,7 @@ export const AddNewItem=()=> {
     <div className='addNewItem'>
     <Box
       component="form"
-      sx={{'& > :not(style)': { m: 1, width: '15ch', }, }}
+      sx={{'& > :not(style)': { m: 1, width: '15ch' }, }}
       noValidate
       autoComplete="off"
     >
@@ -33,6 +33,7 @@ export const AddNewItem=()=> {
       
       <TextField id="outlined-basic"
        label="Add new amount"
+        sx={{justifyContent:'center', m: '1', width:'15ch'}}
          variant="outlined" 
          value={newAmount}
          onChange={(event)=>setNewAmount(event.target.value)}/>

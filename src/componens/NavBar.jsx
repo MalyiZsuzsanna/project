@@ -21,7 +21,7 @@ import { useEffect } from 'react';
 
 const pages = [ 
   {path:"/", name:"Home"},
-  {path:"about", name:"About Me"},
+  
   {path:"calculator", name:"calculator"},];
 
 const settings = [ 
@@ -62,7 +62,7 @@ export const NavBar=()=>{
   };
 
   return (
-    <AppBar position="static" sx={{backgroundImage: 'linear-gradient(45deg, #ff5520, #ffd800, #750cf2, #0cbcf2)'}}>
+    <AppBar position="static" sx={{backgroundImage: 'linear-gradient(45deg, #dd6844, #e8d466, #9039fa, #79d6f3)'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
          

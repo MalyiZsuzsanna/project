@@ -54,10 +54,10 @@ export const BudgetList=({id,timestamp,amount,descr,done})=> {
                 />
               </ListItemIcon>
               <ListItemText primary={descr} />
-            <div>{amount}</div>
+            <div style={{marginRight:'20px'}}>{amount}</div>
             </ListItemButton>
           </ListItem>
-          {open && <EditItem open={open} setOpen={setOpen} id={id} descr={descr}/>}
+          {open && <EditItem open={open} setOpen={setOpen} id={id} descr={descr} amount={amount}/>}
           </>
         );
       }
